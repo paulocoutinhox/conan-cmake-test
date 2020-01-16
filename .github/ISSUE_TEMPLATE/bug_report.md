@@ -7,27 +7,36 @@ assignees: ''
 
 ---
 
-**Describe the bug**
+### Describe the bug
 A clear and concise description of what the bug is.
 
-**To Reproduce**
+### To Reproduce
 Steps to reproduce the behavior:
 
 1. Go to '...'
 2. Execute on terminal '....'
 3. See error
 
-**Expected behavior**
+### Expected behavior
 A clear and concise description of what you expected to happen.
 
-**Screenshots**
+### Screenshots
 If applicable, add screenshots to help explain your problem.
 
-**System (please complete the following information):**
+### System (please complete the following information)
  - OS: [e.g. Ubuntu]
  - Version: [e.g. 18.04]
  - Conan: [e.g. 1.18.0]
  - Arch: [e.g. armv7, x86_64]
 
-**Additional context**
+### Additional context
 Add any other context about the problem here.
+
+### Logs (Include/Attach if Applicable)
+<details><summary>Click to expand log</summary>
+
+```
+Put your log output here
+```
+
+</details>
