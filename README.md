@@ -1,4 +1,4 @@
-# Conan Cmake Test
+# Conan CMake Test
 
 [![Build Status](https://travis-ci.com/prsolucoes/conan-cmake-test.svg?branch=master)](https://travis-ci.com/prsolucoes/conan-cmake-test)
 
