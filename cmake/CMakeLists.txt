@@ -23,6 +23,7 @@ set(CODE_SIGN_IDENTITY "" CACHE STRING "Sign Identity")
 set(FRAMEWORK_NAME "${PROJECT_CONFIG_NAME}" CACHE STRING "Framework Name")
 set(FRAMEWORK_BUNDLE_IDENTIFIER "com.prsolucoes.sample" CACHE STRING "Bundle Identifier")
 set(DEVICE_FAMILY "1,2" CACHE STRING "Device Family")
+set(CMAKE_MACOSX_BUNDLE TRUE)
 
 # Project
 project(${PROJECT_CONFIG_NAME})
