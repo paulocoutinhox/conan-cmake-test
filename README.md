@@ -18,7 +18,11 @@ Sample project using CMake and Conan to build a sample.
 2. Enter on cloned folder:  
     > cd conan-cmake-test
 
-3. Run:  
+3. Add repositories:  
+    > conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan
+    > conan remote add darwin-toolchain https://api.bintray.com/conan/ezored/conan-darwin-toolchain
+
+4. Run:  
     > make build  
     > make check    
 
