@@ -19,8 +19,8 @@ Sample project using CMake and Conan to build a sample.
     > cd conan-cmake-test
 
 3. Add repositories:  
-    > conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan
-    > conan remote add darwin-toolchain https://api.bintray.com/conan/ezored/conan-darwin-toolchain
+    > conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan  
+    > conan remote add darwin-toolchain https://api.bintray.com/conan/ezored/conan-darwin-toolchain  
 
 4. Run:  
     > make build  
