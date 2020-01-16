@@ -25,9 +25,9 @@ If applicable, add screenshots to help explain your problem.
 
 **System (please complete the following information):**
  - OS: [e.g. Ubuntu]
- - Version [e.g. 18.04]
- - Conan [e.g. 1.18.0]
- - Arch [e.g. armv7, x86_64]
+ - Version: [e.g. 18.04]
+ - Conan: [e.g. 1.18.0]
+ - Arch: [e.g. armv7, x86_64]
 
 **Additional context**
 Add any other context about the problem here.
