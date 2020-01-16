@@ -1,0 +1,16 @@
+jobs:
+  include:
+  - os: osx
+    osx_image: xcode11.2
+    language: generic
+    before_install:
+      - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then mkdir $HOME/bin; ln -s $(which pip3) $HOME/bin/pip; fi
+    install:
+      - pip install conan
+    before_script:
+      - conan profile new default --detect
+      - conan remote add bincrafters https://api.bintray.com/conan/bincrafters/public-conan
+      - conan remote add darwin-toolchain https://api.bintray.com/conan/ezored/conan-darwin-toolchain
+      - make install-profiles
+    script:
+      - make build && make check
