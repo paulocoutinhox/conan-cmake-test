@@ -10,7 +10,7 @@ set(PROJECT_CONFIG_ARCH "" CACHE STRING "Architecture")
 set(PROJECT_ROOT_PATH ${CMAKE_SOURCE_REALPATH})
 set(PROJECT_BUILD_DIR ${PROJECT_ROOT_PATH}/out/build CACHE INTERNAL "")
 set(PROJECT_CONAN_DIR ${PROJECT_ROOT_PATH}/out/conan CACHE INTERNAL "")
-set(PROJECT_SRC_DIR ${PROJECT_ROOT_PATH}/src CACHE INTERNAL "")
+set(PROJECT_CODE_DIR ${PROJECT_ROOT_PATH}/code CACHE INTERNAL "")
 
 # Suppress macOS X RPATH warnings and adopt new related behaviors
 if(NOT CMAKE_VERSION VERSION_LESS 3.9)
@@ -31,9 +31,28 @@ project(${PROJECT_CONFIG_NAME})
 include(${PROJECT_CONAN_DIR}/conanbuildinfo.cmake)
 conan_basic_setup()
 
+# Merge lists
+set(
+    TARGET_HEADER_FILES     
+    ${PROJECT_CODE_DIR}/include/lib.hpp
+)
+
+set(
+    TARGET_SOURCE_FILES     
+    ${PROJECT_CODE_DIR}/src/lib.cpp
+)
+
 set(
     PROJECT_SOURCE_FILES
-    ${PROJECT_SRC_DIR}/main.cpp
+    ${PROJECT_SOURCE_FILES}
+    ${TARGET_SOURCE_FILES}
+    ${TARGET_HEADER_FILES}
+    CACHE INTERNAL ""
+)
+
+set(
+    PROJECT_HEADER_FILES
+    ${TARGET_HEADER_FILES}
     CACHE INTERNAL ""
 )
 
@@ -63,6 +82,7 @@ set(CMAKE_C_LINK_FLAGS "-Wl,-search_paths_first ${CMAKE_C_LINK_FLAGS}")
 set(CMAKE_CXX_LINK_FLAGS "-Wl,-search_paths_first ${CMAKE_CXX_LINK_FLAGS}")
 
 # Project
+include_directories(${PROJECT_CODE_DIR}/include)
 add_library(${PROJECT_CONFIG_NAME} SHARED ${PROJECT_SOURCE_FILES})
 
 target_link_libraries(${PROJECT_CONFIG_NAME} "${PROJECT_FRAMEWORK_LINKS}")
@@ -73,6 +93,7 @@ set_target_properties(${PROJECT_CONFIG_NAME} PROPERTIES
     CXX_STANDARD_REQUIRED YES
     CXX_EXTENSIONS NO
     CXX_VISIBILITY_PRESET default
+    PUBLIC_HEADER "${PROJECT_HEADER_FILES}"
     FRAMEWORK TRUE
     FRAMEWORK_VERSION A
     MACOSX_FRAMEWORK_IDENTIFIER "${FRAMEWORK_BUNDLE_IDENTIFIER}"
