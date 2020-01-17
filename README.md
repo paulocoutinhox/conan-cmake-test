@@ -23,8 +23,7 @@ Sample project using CMake and Conan to build a sample.
     > conan remote add darwin-toolchain https://api.bintray.com/conan/ezored/conan-darwin-toolchain  
 
 4. Run:  
-    > make build  
-    > make check    
+    > make deps && make build && make check    
 
 ## License
 

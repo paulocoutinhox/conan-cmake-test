@@ -4,15 +4,16 @@ help:
 	@echo "Type: make [rule]. Available options are:"
 	@echo ""
 	@echo "- help"
+	@echo "- deps"
 	@echo "- build"
 	@echo "- check"
 	@echo "- install-profiles"
 	@echo ""
 
-build:
-	rm -rf out
-
+deps:
+	rm -rf out/conan
 	mkdir -p out/conan
+
 	cd out/conan && \
 		conan install ../../conan/recipe/conanfile.py \
 		--profile cmake_test_ios_framework_profile \
@@ -22,7 +23,10 @@ build:
 		--build=missing \
 		--update
 
+build:
+	rm -rf out/build
 	mkdir -p out/build
+
 	cd out/build && \
 		conan build ../../conan/recipe/conanfile.py \
 		--source-folder ../../cmake \
