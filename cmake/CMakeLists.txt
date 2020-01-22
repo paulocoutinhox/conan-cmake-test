@@ -70,12 +70,12 @@ set(CMAKE_CXX_LINK_FLAGS "-Wl,-search_paths_first ${CMAKE_CXX_LINK_FLAGS}")
 
 # Project
 include_directories(${PROJECT_CODE_DIR}/include)
-add_library(${PROJECT_CONFIG_NAME} SHARED ${PROJECT_SOURCE_FILES})
+add_library(Sample SHARED ${PROJECT_SOURCE_FILES})
 
-target_link_libraries(${PROJECT_CONFIG_NAME} "${PROJECT_FRAMEWORK_LINKS}")
-target_link_libraries(${PROJECT_CONFIG_NAME} "${CONAN_LIBS}")
+target_link_libraries(Sample "${PROJECT_FRAMEWORK_LINKS}")
+target_link_libraries(Sample "${CONAN_LIBS}")
 
-set_target_properties(${PROJECT_CONFIG_NAME} PROPERTIES
+set_target_properties(Sample PROPERTIES
     CXX_STANDARD "${PROJECT_CONFIG_CPP_STANDARD}"
     CXX_STANDARD_REQUIRED YES
     CXX_EXTENSIONS NO
@@ -102,14 +102,14 @@ set_target_properties(${PROJECT_CONFIG_NAME} PROPERTIES
 )
 
 # Adapt install directory to allow distributing dylibs/frameworks in user's frameworks/application bundle
-set_target_properties(${PROJECT_CONFIG_NAME} PROPERTIES INSTALL_NAME_DIR "@rpath")
+set_target_properties(Sample PROPERTIES INSTALL_NAME_DIR "@rpath")
 
 if(NOT CMAKE_SKIP_BUILD_RPATH)
     if(CMAKE_VERSION VERSION_LESS 3.9)
-        set_target_properties(${PROJECT_CONFIG_NAME} PROPERTIES BUILD_WITH_INSTALL_RPATH TRUE)
+        set_target_properties(Sample PROPERTIES BUILD_WITH_INSTALL_RPATH TRUE)
     else()
-        set_target_properties(${PROJECT_CONFIG_NAME} PROPERTIES BUILD_WITH_INSTALL_NAME_DIR TRUE)
+        set_target_properties(Sample PROPERTIES BUILD_WITH_INSTALL_NAME_DIR TRUE)
     endif()
 endif()
 
-target_compile_options(${PROJECT_CONFIG_NAME} PUBLIC "${PROJECT_COMPILE_OPTIONS}")
+target_compile_options(Sample PUBLIC "${PROJECT_COMPILE_OPTIONS}")
