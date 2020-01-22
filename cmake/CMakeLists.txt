@@ -76,7 +76,7 @@ target_link_libraries(Sample "${PROJECT_FRAMEWORK_LINKS}")
 target_link_libraries(Sample "${CONAN_LIBS}")
 
 set_target_properties(Sample PROPERTIES
-    CXX_STANDARD "${PROJECT_CONFIG_CPP_STANDARD}"
+    CXX_STANDARD "11"
     CXX_STANDARD_REQUIRED YES
     CXX_EXTENSIONS NO
     CXX_VISIBILITY_PRESET default
@@ -84,9 +84,9 @@ set_target_properties(Sample PROPERTIES
     FRAMEWORK TRUE
     FRAMEWORK_VERSION A
     MACOSX_FRAMEWORK_IDENTIFIER "com.prsolucoes.sample"
-    MACOSX_FRAMEWORK_BUNDLE_VERSION "${PROJECT_CONFIG_VERSION}"
-    MACOSX_FRAMEWORK_SHORT_VERSION_STRING "${PROJECT_CONFIG_VERSION}"
-    XCODE_ATTRIBUTE_IPHONEOS_DEPLOYMENT_TARGET "${CMAKE_OSX_DEPLOYMENT_TARGET}"
+    MACOSX_FRAMEWORK_BUNDLE_VERSION "1.0.0"
+    MACOSX_FRAMEWORK_SHORT_VERSION_STRING "1.0.0"
+    XCODE_ATTRIBUTE_IPHONEOS_DEPLOYMENT_TARGET "9.0"
     XCODE_ATTRIBUTE_CODE_SIGN_IDENTITY ""
     XCODE_ATTRIBUTE_CODE_SIGNING_REQUIRED "NO"
     XCODE_ATTRIBUTE_DEVELOPMENT_TEAM ""
@@ -96,9 +96,9 @@ set_target_properties(Sample PROPERTIES
     XCODE_ATTRIBUTE_INSTALL_PATH "@loader_path/Frameworks"
 
     # Is "current version" in semantic format in Mach-O binary file
-    VERSION "${PROJECT_CONFIG_VERSION}"
+    VERSION "1.0.0"
     # Is "compatibility version" in semantic format in Mach-O binary file
-    SOVERSION "${PROJECT_CONFIG_VERSION}"
+    SOVERSION "1.0.0"
 )
 
 # Adapt install directory to allow distributing dylibs/frameworks in user's frameworks/application bundle
