@@ -17,7 +17,7 @@ deps:
 	cd out/conan && \
 		conan install ../../conan/recipe/conanfile.py \
 		--profile cmake_test_ios_framework_profile \
-		-s arch=armv7 \
+		-s arch=armv8 \
 		-s os.version=9.0 \
 		-s build_type=Debug \
 		--build=missing \
