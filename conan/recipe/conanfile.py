@@ -11,6 +11,7 @@ class TargetConan(ConanFile):
         "fPIC": True,
         "group": "",
         "sqlite3:threadsafe": 1,
+        "sqlite3:build_executable": False,
     }
     exports_sources = "*"
     generators = "cmake"
@@ -24,4 +25,4 @@ class TargetConan(ConanFile):
         cmake.build()
 
     def requirements(self):
-        self.requires("sqlite3/3.30.1")
+        self.requires("sqlite3/3.34.0")
