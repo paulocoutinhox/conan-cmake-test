@@ -70,10 +70,11 @@ deps-catalyst:
 	cd out/conan-catalyst && \
 		conan install ../../conan/recipe/conanfile.py \
 		--profile cmake_test_catalyst_framework_profile \
-		-s arch=x86_64 \
-		-s os.version=13.0 \
-		-s os.subsystem=catalyst \
-		-s build_type=Debug \
+		-s:h arch=x86_64 \
+		-s:b os.version=10.9 \
+		-s:h os.version=13.0 \
+		-s:h os.subsystem=catalyst \
+		-s:h build_type=Debug \
 		-o group=catalyst \
 		--build=missing \
 		--update
