@@ -28,15 +28,15 @@ Sample project using CMake and Conan to build a sample.
     > cd conan-cmake-test
 
 3. Install conan:  
-    > pip install conan --upgrade
-    > conan profile new default --detect
+    > pip install conan --upgrade      
+    > conan profile new default --detect  
     > conan remote add darwin-toolchain https://api.bintray.com/conan/ezored/conan-darwin-toolchain  
     > make install-profiles  
 
 4. Run:  
     > make deps-ios  
     > make build-ios  
-    > make check-ios    
+    > make check-ios  
     > make deps-catalyst  
     > make build-catalyst  
     > make check-catalyst    

@@ -29,7 +29,7 @@ deps-ios:
 	rm -rf out/conan-ios
 	mkdir -p out/conan-ios
 
-	cd out/conan && \
+	cd out/conan-ios && \
 		conan install ../../conan/recipe/conanfile.py \
 		--profile cmake_test_ios_framework_profile \
 		-s arch=armv8 \
@@ -66,7 +66,7 @@ deps-catalyst:
 	rm -rf out/conan-catalyst
 	mkdir -p out/conan-catalyst
 
-	cd out/conan && \
+	cd out/conan-catalyst && \
 		conan install ../../conan/recipe/conanfile.py \
 		--profile cmake_test_catalyst_framework_profile \
 		-s arch=x86_64 \
