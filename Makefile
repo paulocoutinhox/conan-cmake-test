@@ -47,7 +47,7 @@ build-ios:
 		conan build ../../conan/recipe/conanfile.py \
 		--source-folder ../../cmake \
 		--build-folder . \
-		--install-folder ../conan
+		--install-folder ../conan-ios
 
 	cp -R support/Modules out/build-ios/lib/Sample.framework/
 
@@ -84,7 +84,7 @@ build-catalyst:
 		conan build ../../conan/recipe/conanfile.py \
 		--source-folder ../../cmake \
 		--build-folder . \
-		--install-folder ../conan
+		--install-folder ../conan-catalyst
 
 	cp -R support/Modules out/build-catalyst/lib/Sample.framework/
 
