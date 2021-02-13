@@ -87,7 +87,7 @@ jobs:
         make install-profiles
 
     - name: Dependencies
-      run: make build-deps-catalyst
+      run: make deps-catalyst
 
     - name: Build
       run: make build-catalyst

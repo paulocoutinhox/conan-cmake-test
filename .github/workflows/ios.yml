@@ -87,7 +87,7 @@ jobs:
         make install-profiles
 
     - name: Dependencies
-      run: make build-deps-ios
+      run: make deps-ios
 
     - name: Build
       run: make build-ios
