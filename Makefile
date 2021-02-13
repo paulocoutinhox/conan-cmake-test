@@ -32,7 +32,7 @@ deps-ios:
 	cd out/conan-ios && \
 		conan install ../../conan/recipe/conanfile.py \
 		--profile cmake_test_ios_framework_profile \
-		-s arch=armv8 \
+		-s arch=x86_64 \
 		-s os.version=9.0 \
 		-s build_type=Debug \
 		-o group=ios \
