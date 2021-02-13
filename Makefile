@@ -35,6 +35,7 @@ deps-ios:
 		-s arch=armv8 \
 		-s os.version=9.0 \
 		-s build_type=Debug \
+		-o group=ios \
 		-o darwin-toolchain:enable_bitcode=True \
 		--build=missing \
 		--update
@@ -73,6 +74,7 @@ deps-catalyst:
 		-s os.version=13.0 \
 		-s os.subsystem=catalyst \
 		-s build_type=Debug \
+		-o group=catalyst \
 		--build=missing \
 		--update
 
