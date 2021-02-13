@@ -20,6 +20,7 @@ deps:
 		-s arch=armv8 \
 		-s os.version=9.0 \
 		-s build_type=Debug \
+		-o darwin-toolchain:enable_bitcode=True \
 		--build=missing \
 		--update
 
@@ -32,6 +33,8 @@ build:
 		--source-folder ../../cmake \
 		--build-folder . \
 		--install-folder ../conan
+
+	cp -R support/Modules out/build/lib/Sample.framework/
 
 check:
 	file out/build/lib/Sample.framework/Sample

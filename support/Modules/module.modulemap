@@ -1,0 +1,6 @@
+framework module MySDK {
+    umbrella header "umbrella-header-x.h"
+
+    export *
+    module * { export * }
+}

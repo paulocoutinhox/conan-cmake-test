@@ -1,3 +1,3 @@
-void myFunction() {
-    
+int myFunction() {
+    return 99;
 }

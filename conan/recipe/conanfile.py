@@ -25,4 +25,4 @@ class TargetConan(ConanFile):
         cmake.build()
 
     def requirements(self):
-        self.requires("sqlite3/3.34.0")
+        self.requires("sqlite3/3.34.1")

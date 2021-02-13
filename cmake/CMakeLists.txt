@@ -5,11 +5,12 @@ get_filename_component(CMAKE_SOURCE_REALPATH "${CMAKE_SOURCE_DIR}/../" REALPATH)
 set(PROJECT_CONFIG_NAME "Sample" CACHE STRING "Project name")
 set(PROJECT_CONFIG_VERSION "1.0.0" CACHE STRING "")
 set(PROJECT_CONFIG_CPP_STANDARD "11" CACHE STRING "11")
+set(PROJECT_CONFIG_ARCH "" CACHE STRING "Architecture")
+
 set(PROJECT_ROOT_PATH ${CMAKE_SOURCE_REALPATH})
 set(PROJECT_BUILD_DIR ${PROJECT_ROOT_PATH}/out/build CACHE INTERNAL "")
 set(PROJECT_CONAN_DIR ${PROJECT_ROOT_PATH}/out/conan CACHE INTERNAL "")
 set(PROJECT_CODE_DIR ${PROJECT_ROOT_PATH}/code CACHE INTERNAL "")
-set(PROJECT_CONFIG_ARCH "" CACHE STRING "Architecture")
 
 # Platform configurations
 set(DEVELOPMENT_TEAM_ID "" CACHE STRING "Development Team ID")
@@ -17,7 +18,6 @@ set(CODE_SIGN_IDENTITY "" CACHE STRING "Sign Identity")
 set(FRAMEWORK_NAME "${PROJECT_CONFIG_NAME}" CACHE STRING "Framework Name")
 set(FRAMEWORK_BUNDLE_IDENTIFIER "com.prsolucoes.sample" CACHE STRING "Bundle Identifier")
 set(DEVICE_FAMILY "1,2" CACHE STRING "Device Family")
-set(CMAKE_MACOSX_BUNDLE YES)
 set(CMAKE_OSX_ARCHITECTURES "${PROJECT_CONFIG_ARCH}")
 
 message(STATUS "ARCH: ${PROJECT_CONFIG_ARCH}")
@@ -62,10 +62,10 @@ set(PROJECT_FRAMEWORK_LINKS
 )
 
 # C flags
-set(PROJECT_CMAKE_C_FLAGS "-fobjc-arc -fobjc-abi-version=2" CACHE INTERNAL "")
+set(PROJECT_CMAKE_C_FLAGS "-fobjc-arc -fobjc-abi-version=2 -fembed-bitcode" CACHE INTERNAL "")
 
 # CXX flags
-set(PROJECT_CMAKE_CXX_FLAGS "-fobjc-arc -fvisibility-inlines-hidden -fobjc-abi-version=2 -stdlib=libc++" CACHE INTERNAL "")
+set(PROJECT_CMAKE_CXX_FLAGS "-fobjc-arc -fvisibility-inlines-hidden -fobjc-abi-version=2 -stdlib=libc++ -fembed-bitcode" CACHE INTERNAL "")
 
 # Flags
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${PROJECT_CMAKE_C_FLAGS}" CACHE INTERNAL "")
@@ -105,6 +105,7 @@ set_target_properties(${PROJECT_CONFIG_NAME} PROPERTIES
     XCODE_ATTRIBUTE_ONLY_ACTIVE_ARCH YES
     XCODE_ATTRIBUTE_SKIP_INSTALL YES
     XCODE_ATTRIBUTE_INSTALL_PATH "@loader_path/Frameworks"
+    XCODE_ATTRIBUTE_ENABLE_BITCODE YES
 
     # Is "current version" in semantic format in Mach-O binary file
     VERSION "${PROJECT_CONFIG_VERSION}"
